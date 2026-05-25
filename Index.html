@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aventura Agrinho</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.caixa{
+    background: rgba(0,0,0,0.3);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: auto;
+}
+
+button{
+    background: #fff;
+    color: #333;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover{
+    background: #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<div class="caixa">
+    <h1>🌱 Aventura no Campo</h1>
+
+    <p id="texto">
+        Você chegou em uma fazenda inteligente. O que deseja fazer?
+    </p>
+
+    <div id="botoes">
+        <button onclick="irPlantacao()">Ver plantação</button>
+        <button onclick="irAnimais()">Cuidar dos animais</button>
+    </div>
+</div>
+
+<script>
+function irPlantacao(){
+    document.getElementById("texto").innerHTML =
+    "Você encontrou uma plantação seca. Deseja ligar a irrigação?";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="finalBom()">Sim</button>
+        <button onclick="finalRuim()">Não</button>
+    `;
+}
+
+function irAnimais(){
+    document.getElementById("texto").innerHTML =
+    "Os animais estão com fome. Deseja alimentá-los?";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="finalBom()">Sim</button>
+        <button onclick="finalRuim()">Não</button>
+    `;
+}
+
+function finalBom(){
+    document.getElementById("texto").innerHTML =
+    "🎉 Parabéns! Você cuidou bem da fazenda e tudo ficou saudável.";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="location.reload()">Jogar novamente</button>
+    `;
+}
+
+function finalRuim(){
+    document.getElementById("texto").innerHTML =
+    "😢 A fazenda teve problemas porque você não ajudou.";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="location.reload()">Tentar novamente</button>
+    `;
+}
+</script>
+
+</body>
+</html>
