@@ -96,3 +96,163 @@ function finalRuim(){
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aventura na Fazenda</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #56ab2f, #a8e063);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.caixa{
+    background: rgba(0,0,0,0.3);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: auto;
+}
+
+button{
+    background: white;
+    color: #333;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover{
+    background: #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<div class="caixa">
+    <h1>🌱 Fazenda Inteligente</h1>
+
+    <p id="texto">
+        Você chegou na fazenda. O que deseja fazer primeiro?
+    </p>
+
+    <div id="botoes">
+        <button onclick="plantacao()">Ver plantação</button>
+        <button onclick="animais()">Cuidar dos animais</button>
+    </div>
+</div>
+
+<script>
+
+function plantacao(){
+    document.getElementById("texto").innerHTML =
+    "A plantação está seca. O que deseja fazer?";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="irrigacao()">Ligar irrigação</button>
+        <button onclick="naoIrrigar()">Ignorar</button>
+    `;
+}
+
+function irrigacao(){
+    document.getElementById("texto").innerHTML =
+    "A água voltou para as plantas! Agora apareceu uma praga nas folhas. O que fazer?";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="removerPraga()">Remover praga</button>
+        <button onclick="ignorarPraga()">Deixar assim</button>
+    `;
+}
+
+function removerPraga(){
+    document.getElementById("texto").innerHTML =
+    "🎉 Você salvou a plantação e a colheita foi um sucesso!";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="reiniciar()">Jogar novamente</button>
+    `;
+}
+
+function ignorarPraga(){
+    document.getElementById("texto").innerHTML =
+    "😢 A praga destruiu parte da plantação.";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="reiniciar()">Tentar novamente</button>
+    `;
+}
+
+function naoIrrigar(){
+    document.getElementById("texto").innerHTML =
+    "😢 As plantas secaram por falta de água.";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="reiniciar()">Tentar novamente</button>
+    `;
+}
+
+function animais(){
+    document.getElementById("texto").innerHTML =
+    "Os animais estão esperando cuidados. O que deseja fazer?";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="alimentar()">Dar comida</button>
+        <button onclick="naoAlimentar()">Ignorar animais</button>
+    `;
+}
+
+function alimentar(){
+    document.getElementById("texto").innerHTML =
+    "Os animais ficaram felizes! Mas um deles ficou doente. O que fazer?";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="veterinario()">Chamar veterinário</button>
+        <button onclick="deixarDoente()">Esperar melhorar sozinho</button>
+    `;
+}
+
+function veterinario(){
+    document.getElementById("texto").innerHTML =
+    "🎉 O veterinário cuidou dos animais e tudo ficou bem na fazenda!";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="reiniciar()">Jogar novamente</button>
+    `;
+}
+
+function deixarDoente(){
+    document.getElementById("texto").innerHTML =
+    "😢 O animal piorou porque não recebeu cuidados.";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="reiniciar()">Tentar novamente</button>
+    `;
+}
+
+function naoAlimentar(){
+    document.getElementById("texto").innerHTML =
+    "😢 Os animais ficaram fracos e tristes.";
+
+    document.getElementById("botoes").innerHTML = `
+        <button onclick="reiniciar()">Tentar novamente</button>
+    `;
+}
+
+function reiniciar(){
+    location.reload();
+}
+
+</script>
+
+</body>
+</html>
